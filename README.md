@@ -1,6 +1,6 @@
 # Odoo Docker Setup
 
-Simple Odoo 17 setup with PostgreSQL using Docker Compose and bind mounts.
+Simple Odoo 19 setup with PostgreSQL using Docker Compose and bind mounts.
 
 ## Prerequisites
 
@@ -43,10 +43,10 @@ Simple Odoo 17 setup with PostgreSQL using Docker Compose and bind mounts.
 
 ## Services
 
-| Service  | Image       | Port | Description         |
-| -------- | ----------- | ---- | ------------------- |
-| odoo-web | odoo:17.0   | 8069 | Odoo application    |
-| odoo-db  | postgres:15 | 5432 | PostgreSQL database |
+| Service  | Image              | Port | Description         |
+| -------- | ------------------ | ---- | ------------------- |
+| odoo-web | odoo:19            | 8069 | Odoo application    |
+| odoo-db  | postgres:17-alpine | 5432 | PostgreSQL database |
 
 ## Common Commands
 
