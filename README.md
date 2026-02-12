@@ -1,0 +1,73 @@
+# Odoo Docker Setup
+
+Simple Odoo 17 setup with PostgreSQL using Docker Compose and bind mounts.
+
+## Prerequisites
+
+- Docker
+- Docker Compose
+
+## Quick Start
+
+1. **Copy environment file**
+
+   ```bash
+   cp .env.example .env
+   ```
+
+2. **Edit `.env`** and update the passwords
+
+3. **Start services**
+
+   ```bash
+   docker-compose --env-file .env up -d
+   ```
+
+4. **Access Odoo**
+   - URL: <http://localhost:8069>
+   - Database: `postgres` (or as configured in `.env`)
+
+## Project Structure
+
+```
+.
+├── addons/          # Custom Odoo addons
+├── config/          # Odoo configuration files
+├── data/            # Persistent data
+│   ├── odoo/       # Odoo filestore
+│   └── postgres/   # PostgreSQL data
+├── .env            # Environment variables (not committed)
+├── .env.example    # Environment template
+└── docker-compose.yml
+```
+
+## Services
+
+| Service  | Image       | Port | Description         |
+| -------- | ----------- | ---- | ------------------- |
+| odoo-web | odoo:17.0   | 8069 | Odoo application    |
+| odoo-db  | postgres:15 | 5432 | PostgreSQL database |
+
+## Common Commands
+
+```bash
+# Start services
+docker-compose up -d
+
+# Stop services
+docker-compose down
+
+# View logs
+docker-compose logs -f
+
+# Restart Odoo
+docker-compose restart odoo-web
+```
+
+## Configuration
+
+Edit `.env` to customize:
+
+- `ODOO_PORT`: Web interface port (default: 8069)
+- `POSTGRES_PASSWORD`: Database password
+- `POSTGRES_USER`: Database user
