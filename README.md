@@ -86,16 +86,16 @@ The database credentials in this file must match your `.env` file. Without these
 
 ```bash
 # Start services
-docker-compose up -d
+docker compose up -d
 
 # Stop services
-docker-compose down
+docker compose down
 
 # View logs
-docker-compose logs -f
+docker compose logs -f
 
 # Restart Odoo
-docker-compose restart odoo-web
+docker compose restart odoo-web
 ```
 
 ## Reset All Data
@@ -110,10 +110,11 @@ To completely reset and start fresh:
 docker compose down -v
 
 # Remove all data directories
-rm -rf data/odoo/* data/postgres/*
+rm -rf data/odoo
+rm -rf data/postgres
 
 # Restart services
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Configuration
