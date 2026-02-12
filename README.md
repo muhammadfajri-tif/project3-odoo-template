@@ -1,5 +1,17 @@
 # Odoo Docker Setup
 
+<!--toc:start-->
+
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Important Configuration](#important-configuration)
+- [Project Structure](#project-structure)
+- [Services](#services)
+- [Common Commands](#common-commands)
+- [Reset All Data](#reset-all-data)
+- [Configuration](#configuration)
+<!--toc:end-->
+
 Simple Odoo 19 setup with PostgreSQL using Docker Compose and bind mounts.
 
 ## Prerequisites
@@ -84,6 +96,24 @@ docker-compose logs -f
 
 # Restart Odoo
 docker-compose restart odoo-web
+```
+
+## Reset All Data
+
+> [!WARNING]
+> This will delete all Odoo filestore data and PostgreSQL databases. Use with caution.
+
+To completely reset and start fresh:
+
+```bash
+# Stop containers
+docker compose down -v
+
+# Remove all data directories
+rm -rf data/odoo/* data/postgres/*
+
+# Restart services
+docker-compose up -d
 ```
 
 ## Configuration
