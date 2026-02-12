@@ -27,6 +27,22 @@ Simple Odoo 19 setup with PostgreSQL using Docker Compose and bind mounts.
    - URL: <http://localhost:8069>
    - Database: `postgres` (or as configured in `.env`)
 
+## Important Configuration
+
+> [!IMPORTANT]
+> This step is REQUIRED. Read carefully
+
+**config/odoo.conf must include database connection settings:**
+
+```ini
+[options]
+db_host = odoo-db
+db_user = odoo
+db_password = odoo
+```
+
+The database credentials in this file must match your `.env` file. Without these settings, Odoo will fail to connect to the database when creating new databases.
+
 ## Project Structure
 
 ```
