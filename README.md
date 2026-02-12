@@ -20,6 +20,12 @@ Simple Odoo 19 setup with PostgreSQL using Docker Compose and bind mounts.
 3. **Start services**
 
    ```bash
+   docker compose --env-file .env up -d
+   ```
+
+   or
+
+   ```bash
    docker-compose --env-file .env up -d
    ```
 
